@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Uml_tp7">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="" visibility="public" xPosition="38.0" yPosition="85.0">
+      <Fields>
+        <Field name="legajo" type="int" visibility="protected"/>
+        <Field name="apellido" type="String" visibility="protected"/>
+        <Field name="nombre" type="String" visibility="protected"/>
+        <Field name="materias" type="HashSet" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="legajo"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getLegajo" returnType="int" visibility="public"/>
+        <Method name="setLegajo" returnType="int" visibility="public">
+          <Argument type="int" name="legajo"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="String" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="agregarMateria" returnType="Materia" visibility="public">
+          <Argument type="Materia" name="m"/>
+        </Method>
+        <Method name="cantidadMaterias" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="Object" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Materia" package="" visibility="public" xPosition="937.0" yPosition="154.0">
+      <Fields>
+        <Field name="idMateria" type="int" visibility="protected"/>
+        <Field name="anio" type="int" visibility="protected"/>
+        <Field name="nombre" type="String" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="idMateria"/>
+          <Argument type="int" name="anio"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdMateria" returnType="int" visibility="public"/>
+        <Method name="setIdMateria" returnType="int" visibility="public">
+          <Argument type="int" name="idMateria"/>
+        </Method>
+        <Method name="getAnio" returnType="int" visibility="public"/>
+        <Method name="setAnio" returnType="int" visibility="public">
+          <Argument type="int" name="anio"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="String" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="Object" visibility="public">
+          <Argument type="Object" name="obj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Colegio" package="" visibility="public" xPosition="1296.0" yPosition="85.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ViewAltaAlumnos" package="" visibility="public" xPosition="453.0" yPosition="803.0">
+      <Fields>
+        <Field name="alumnos" type="HashSet" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Alumno&gt;" name="alumnos"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ViewAltaMaterias" package="" visibility="public" xPosition="94.0" yPosition="803.0">
+      <Fields>
+        <Field name="materias" type="HashSet" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Materia&gt;" name="materias"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="ViewFormInscripcion" package="" visibility="public" xPosition="785.0" yPosition="746.0">
+      <Fields>
+        <Field name="materias" type="HashSet" visibility="protected"/>
+        <Field name="alumnos" type="HashSet" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Materia&gt;" name="materias"/>
+          <Argument type="HashSet&lt;Alumno&gt;" name="alumnos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargaMaterias" returnType="void" visibility="public"/>
+        <Method name="cargaAlumnos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="escritorio" package="" visibility="public" xPosition="598.0" yPosition="14.0">
+      <Fields>
+        <Field name="materias" type="HashSet" visibility="protected"/>
+        <Field name="alumnos" type="HashSet" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="" source="escritorio" target="Alumno" sourceCardinality="1..*" targetCardinality="1..1"/>
+    <UseRelation name="" source="ViewFormInscripcion" target="Alumno" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <HasRelation name="tiene" source="Alumno" target="Materia" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <UseRelation name="" source="ViewAltaMaterias" target="Materia" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <UseRelation name="" source="ViewAltaAlumnos" target="Alumno" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <HasRelation name="crea" source="escritorio" target="ViewAltaMaterias" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="" source="escritorio" target="Materia" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <UseRelation name="" source="ViewFormInscripcion" target="Materia" sourceCardinality="1..*" targetCardinality="1..*"/>
+    <HasRelation name="crea" source="escritorio" target="ViewFormInscripcion" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="crea" source="escritorio" target="ViewAltaAlumnos" type="Composition" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
